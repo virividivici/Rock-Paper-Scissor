@@ -10,12 +10,7 @@ module.exports = function(grunt) {
   // ------------------------------------------------------------------------
   // Build list of JS files in the order to concatenate.
 
-  var vendor_files = [
-    'src/js/vendor/jquery.min.js',
-    'src/js/vendor/angular.min.js',
-    'src/js/vendor/angular-route.min.js',
-    'src/js/vendor/angular-sanitize.min.js'
-  ]
+  var vendor_files = []
 
 
   var js_files = [

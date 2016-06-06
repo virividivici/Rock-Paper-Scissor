@@ -1,68 +1,46 @@
-angular.module('main-app', [])
-.filter('reverse',[function(){
-    return function(string){
-        return string.split('').reverse().join('');
+function playFunction() {
+var userChoice = prompt("Do you choose rock, paper or scissors?");
+var computerChoice = Math.random();
+if (computerChoice < 0.34) {
+    computerChoice = "rock";
+} else if(computerChoice <= 0.67) {
+    computerChoice = "paper";
+} else {
+    computerChoice = "scissors";
+}
+
+var compare = function(choice1, choice2) {
+    if(choice1 === choice2) {
+      alert("The result is a tie!");
+}
+if(choice1 === "rock") {
+    if(choice2 === "scissors") {
+        alert("rock wins");
+    } else {
+        alert("paper wins");
     }
-}])
+}
+if(choice1 === "paper") {
+    if(choice2 === "rock") {
+        alert("paper wins");
+    } else {
+        if(choice2 === "scissors") {
+            alert("scissors wins");
+    }
+}
+if(choice1 === "scissors") {
+    if(choice2 === "rock") {
+        alert("rock wins");
+    } else {
+        if(choice2 === "paper") {
+           alert("scissors wins");
+        }
+    }
+}
+}
+};
+console.log("User Choice: " + userChoice);
+console.log("Computer Choice: " + computerChoice);
+compare(userChoice, computerChoice)
+} 
 
-
-angular.module('main-app')
-	.filter('toEnglish', function() {
-	  return function(input) {
-	  	
-	  	var englishStr = ''
-	  	var convert = function(s) {
-
-	  		if (typeof s === "undefined") {
-			    return null;
-			}
-
-	  		var digits = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
-		 	var teens = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
-			var tens = ['twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
-			var hundreds = ['', 'thousand'];
-
-		    s = s.toString();
-		    s = s.replace(/[\, ]/g, '');
-		    if (s != parseFloat(s)) {
-		    	return 'Please enter a valid number';
-		    } 
-
-		    var length = s.indexOf('.');
-		    if (length == -1) {
-		    	length = s.length;
-		    }
-
-		    var num = s.split('');
-		    var str = '';
-		    var holder = 0;
-		    console.log(num);
-
-		    for (var i = 0; i < length; i++) {
-		        if ((length - i) % 3 == 2) {
-		            if (num[i] == '1') {
-		                str += teens[Number(num[i + 1])] + ' ';
-		                i++;
-		                holder = 1;
-		            } else if (num[i] != 0) {
-		                str += tens[num[i] - 2] + ' ';
-		                holder = 1;
-		            }
-		        } else if (num[i] != 0) {
-		            str += digits[num[i]] + ' ';
-		            if ((length - i) % 3 == 0) str += 'hundred and ';
-		            holder = 1;
-		        }
-		        if ((length - i) % 3 == 1) {
-		            if (holder) str += hundreds[(length - i - 1) / 3] + ' ';
-		            holder = 0;
-		        }
-		    }
-		   
-		    return str.replace(/\s+/g, ' '); 
-		}
-		
-		return convert(input);
-				 
-	  };
-	});
