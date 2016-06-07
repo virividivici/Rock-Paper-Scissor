@@ -14,51 +14,6 @@
 	  <title>Welcome!</title>
     <script src="assets/js/modernizr-2.6.2.min.js"></script>
     <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
-   <script type="text/javascript">
-    var userChoice = prompt("Do you choose rock, paper or scissors?");
-    var computerChoice = Math.random();
-    if (computerChoice < 0.34) {
-      computerChoice = "rock";
-    } 
-    else if(computerChoice <= 0.67) {
-      computerChoice = "paper";
-    } 
-    else {
-      computerChoice = "scissors";
-    }
-    console.log("Computer computerChoice");
-    var compare = function(choice1,choice2) {
-        if (choice1 === choice2) {
-            return "The result is a tie!"
-        }
-        else if (choice1 === "rock") {
-            if (choice2 === "scissors") {
-                return "rock wins"
-            }
-            else {
-                return "paper wins"
-            }
-        }     
-        else if (choice1 === "paper") {
-            if (choice2 === "rock") {
-            return "paper wins"
-            }
-            else {
-                return "scissors wins"
-            }
-        }
-        else if (choice1 === "scissors") {
-            if (choice2 === "paper") {
-                return "scissors wins"
-            }
-            else {
-                return "rock wins"
-            }
-        }
-    }
-    compare(userChoice,computerChoice);
-
-   </script>
   </head>
   <body>
     <header class="navbar navbar-static-top bs-docs-nav">
@@ -76,10 +31,25 @@
         <div class="page-header">
           <div class="row row-eq-height">
             <div class="col-sm-3">
-             <div id="console-log"></div>
+              
+              <select id="playerType1">
+                <option value="user">User</option> 
+                <option value="cpu">Computer</option>
+              </select>
+              <input type="text" id="player1">
+
+              <button onclick="Game.resetPlayer1();">change Player1</button>
             </div>
-            <div class="col-sm-5">
-             
+
+            <div class="col-sm-3">
+            
+             <select id="playerType2">
+                <option value="user">User</option>
+                <option value="cpu">Computer</option>
+              </select>
+              <input type="text" id="player2">
+
+              <button onclick="Game.resetPlayer2();">change Player2</button>
             </div>
           </div>
         </div>
@@ -89,7 +59,7 @@
     <footer>
     </footer>
 
-   <!--<script type="text/javascript" src="assets/js/main.min.js"></script>--> 
-
+   <script type="text/javascript" src="assets/js/main.min.js"></script>
+  
   </body>
 </html>
