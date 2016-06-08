@@ -1,4 +1,4 @@
-var Game = {
+/***var Game = {
 
     round : 0,
     player1: new player( document.getElementById('player1').value, document.getElementById('playerType1').value), 
@@ -48,5 +48,5 @@ var Game = {
         compare(player1.choice , player2.choice);
     }
     
-} 
+} **/
 

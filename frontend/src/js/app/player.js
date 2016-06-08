@@ -1,4 +1,4 @@
-function player(name, type) {
+/***function player(name, type) {
     this.name = name;
     this.type = type;
     this.choice = ''; 
@@ -39,4 +39,4 @@ function player(name, type) {
         console.log(choice);
         this.choice = choice;
     }
-}
+}**/
